@@ -1,0 +1,69 @@
+Greeting Controller:
+====================
+curl -i http://localhost:8080/v1/greetings/dilip - MAC
+Invoke-WebRequest -Uri http://localhost:8080/v1/greetings/dilip - WINDOWS
+
+http://localhost:8080/h2-console --> Intellij install db for you. you can acces to this endpoint
+jdbc:h2:mem:testdb
+
+-Dspring.profiles.active=prod in configuration of the main function to activate prod profile
+===================
+Course Controller: |
+===================
+
+CREATE COURSE:
+==============
+curl -i \
+-d '{"id":null, "name":"Build Restful APIs using Kotlin and SpringBoot", "category": "Development"}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:8080/v1/courses
+
+Invoke-WebRequest -Uri http://localhost:8080/v1/courses -Method POST -Headers @{"Content-Type" = "application/json"} -Body '{"id":null, "name":"Build Restful APIs using Kotlin and SpringBoot", "category": "Development"}'
+
+
+curl -i \
+-d '{"id":null, "name":"Build Reactive Microservices using Spring WebFlux/SpringBoot ", "category": "Development"}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:8080/v1/courses
+
+GET COURSES:
+==============
+curl -i http://localhost:8080/v1/courses
+Invoke-WebRequest -Uri http://localhost:8080/v1/courses
+
+
+UPDATE COURSE:
+==============
+curl -i \
+-d '{"id":null, "name":"Build Restful APIs using Kotlin & SpringBoot2", "category": "Development"}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8080/v1/courses/1
+
+
+Invoke-WebRequest -Uri http://localhost:8080/v1/courses/1 -Method PUT -Headers @{"Content-Type" = "application/json"} -Body '{"id":null, "name":"Build Restful APIs using Kotlin & SpringBoot2", "category": "Development"}'
+
+
+DELETE COURSE:
+==============
+curl -i -X DELETE http://localhost:8080/v1/courses/1
+
+Invoke-WebRequest -Uri http://localhost:8080/v1/courses/1 -Method DELETE
+
+
+=======================
+Instructor Controller: |
+=======================
+CREATE INSTRUCTOR:
+==================
+curl -i \
+-d '{"id":null, "name":"Dilip Sundarraj"}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:8080/v1/instructors
+
+
+CREATE COURSE WITH INSTRUCTOR:
+==================
+curl -i \
+-d '{"id":null, "name":"Build Restful APIs using Kotlin and SpringBoot", "category": "Development", "instructorId": 1}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:8080/v1/courses

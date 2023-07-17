@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: course-catalog-service
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 1234
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+message: Hello from course-catalog-service profile from application.yml
+
+---
+#spring:
+#  config:
+#    activate:
+#      on-profile: prod
+#message: Hello from prod profile from application.yml
+
+# If you create a application-prod.yml is going to be the same as the code from above. In fact is better to have a application for every profile
